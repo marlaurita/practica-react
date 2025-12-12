@@ -1,0 +1,16 @@
+.image-div {
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.tip {
+    border-radius: 30px;
+    background-color: azure;
+    z-index: 2;
+    color: black;
+    position: absolute;
+    top: '20%';
+    margin: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
