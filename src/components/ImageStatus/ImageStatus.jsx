@@ -1,5 +1,5 @@
-import hosp from "../../assets/images/hospedaje.jpg";
 import "./ImageStatus.css";
+import imageDefault from "./../../assets/images/image-default.png";
 
 function ImageStatus(props) {
   return (
@@ -9,7 +9,11 @@ function ImageStatus(props) {
           <p>Superanfitrión</p>
         </div>
       )}
-      <img className="image-div" src={hosp}></img>
+      {props.imageUrl ? (
+        <img className="image-div" src={props.imageUrl}></img>
+      ) : (
+        <img className="image-div" src={imageDefault}></img>
+      )}
     </div>
   );
 }

@@ -3,9 +3,56 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Card } from "./components/index";
+import hospImg from "./assets/images/hospedaje.jpg";
 
 function App() {
   const [count, setCount] = useState(0);
+  const hosts = [
+    {
+      id: 1,
+      name: "cabaña en Quatro Barras, Brasil",
+      price: "$480,260 CLP",
+      isSuperHost: true,
+      imageUrl: hospImg,
+    },
+    {
+      id: 2,
+      name: "cabaña en Quatro Barras, Perú",
+      price: "$480,260 CLP",
+      isSuperHost: false,
+      imageUrl: hospImg,
+    },
+    {
+      id: 3,
+      name: "cabaña en Quatro Barras, Perú",
+      price: "$480,260 CLP",
+      isSuperHost: false,
+      imageUrl: hospImg,
+    },
+    {
+      id: 4,
+      name: "cabaña en Quatro Barras, Brasil",
+      price: "$480,260 CLP",
+      isSuperHost: true,
+      imageUrl: hospImg,
+    },
+    {
+      id: 5,
+      name: "cabaña en Quatro Barras, Perú",
+      price: "$480,260 CLP",
+      isSuperHost: false,
+    },
+    {
+      id: 6,
+      name: "cabaña en Quatro Barras, Perú",
+      price: "$480,260 CLP",
+      isSuperHost: true,
+    },
+  ];
+
+  function saludoHospedaje(name) {
+    console.log("Hice click en: " + name);
+  }
 
   return (
     <>
@@ -27,7 +74,19 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">Hola soy Maria Laura</p>
-      <Card texto="Alojamiento entero: cabaña en Quatro Barras, Brasil 2 huéspedesh habitación1 cama1 baño $523,972 CLP $480,260 CLP" />
+      <div className="container">
+        {hosts.map((host) => (
+          <Card
+            texto={host.name}
+            key={host.id}
+            isSuperHost={host.isSuperHost}
+            imageUrl={host.imageUrl}
+            handleClick={() => {
+              saludoHospedaje(host.name);
+            }}
+          />
+        ))}
+      </div>
     </>
   );
 }
