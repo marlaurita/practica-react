@@ -3,56 +3,14 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Card } from "./components/index";
-import hospImg from "./assets/images/hospedaje.jpg";
+import { hostsService } from "./mock/hosts.js";
+
 import hospDefault from "./assets/images/image-default.png";
 
 function App() {
   const [count, setCount] = useState(0);
   const [hosts, setHosts] = useState(null);
   //const [isLoading, setIsLoading] = useState(true);
-
-  const hostsService = [
-    {
-      id: 1,
-      name: "cabaña en Quatro Barras, Brasil",
-      price: "$480,260 CLP",
-      isSuperHost: true,
-      imageUrl: hospImg,
-    },
-    {
-      id: 2,
-      name: "cabaña en Quatro Barras, Perú",
-      price: "$480,260 CLP",
-      isSuperHost: false,
-      imageUrl: hospImg,
-    },
-    {
-      id: 3,
-      name: "cabaña en Quatro Barras, Perú",
-      price: "$480,260 CLP",
-      isSuperHost: false,
-      imageUrl: hospImg,
-    },
-    {
-      id: 4,
-      name: "cabaña en Quatro Barras, Brasil",
-      price: "$480,260 CLP",
-      isSuperHost: true,
-      imageUrl: hospImg,
-    },
-    {
-      id: 5,
-      name: "cabaña en Quatro Barras, Perú",
-      price: "$480,260 CLP",
-      isSuperHost: false,
-    },
-    {
-      id: 6,
-      name: "cabaña en Quatro Barras, Perú",
-      price: "$480,260 CLP",
-      isSuperHost: true,
-    },
-  ];
 
   function saludoHospedaje(name) {
     console.log("Hice click en: " + name);
