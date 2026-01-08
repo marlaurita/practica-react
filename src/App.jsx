@@ -6,6 +6,7 @@ import { Card } from "./components/index";
 import { hostsService } from "./mock/hosts.js";
 
 import hospDefault from "./assets/images/image-default.png";
+import { NavLink } from "react-router";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -39,6 +40,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">Hola soy Maria Laura</p>
+      <NavLink to="/product-list"> Ir al listado de productos</NavLink>
       {hosts != null && (
         <div className="container">
           {hosts.map((host) => (
