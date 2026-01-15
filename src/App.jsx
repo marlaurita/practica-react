@@ -11,7 +11,6 @@ import { NavLink } from "react-router";
 function App() {
   const [count, setCount] = useState(0);
   const [hosts, setHosts] = useState(null);
-  //const [isLoading, setIsLoading] = useState(true);
 
   function saludoHospedaje(name) {
     console.log("Hice click en: " + name);

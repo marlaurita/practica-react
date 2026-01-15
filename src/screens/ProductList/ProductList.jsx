@@ -14,10 +14,8 @@ function ProductList() {
     try {
       const response = await fetch("https://dummyjson.com/products");
       const json = await response.json();
-      console.log(json);
       setData(json.products);
     } catch (err) {
-      console.log(err);
       setError(err);
     } finally {
       setLoading(false);
