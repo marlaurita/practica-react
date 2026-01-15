@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router";
-import { Card } from "../../components/index";
+import { Card, SearchInput } from "../../components/index";
 import LoadingGif from "../../assets/gifs/loading-chargement.gif";
 import "./ProductList.css";
 
@@ -8,6 +8,7 @@ function ProductList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
+  const [searchItem, setSearchItem] = useState("");
 
   const getProducts = async () => {
     try {
@@ -27,14 +28,25 @@ function ProductList() {
     getProducts();
   }, []);
 
+  const productFiltered = useMemo(() => {
+    const query = searchItem.trim().toLowerCase();
+    if (!data.length) return [];
+    return data.filter(
+      (p) =>
+        p.title.toLowerCase().includes(query) ||
+        p.category.toLowerCase().includes(query)
+    );
+  }, [data, searchItem]);
+
   return (
     <>
+      <SearchInput searchTerm={searchItem} onSearchChange={setSearchItem} />
       {loading && <img src={LoadingGif} alt="Loading..." />}
 
       {error && !loading && <h1>{error.message}</h1>}
 
       {data.length >= 1 &&
-        data.map((prd) => (
+        productFiltered.map((prd) => (
           <Link key={prd.id} to="/product-detail" state={{ prd: prd }}>
             <Card
               texto={prd.title}
